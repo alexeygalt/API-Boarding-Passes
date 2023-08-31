@@ -17,16 +17,16 @@ class BoardingPass(BaseModel):
 class BaseInputData(BaseModel):
     """Model and validate of expected input data"""
 
-    departure_point: str
-    arrival_point: str
+    # departure_point: str
+    # arrival_point: str
     boarding_passes: list[BoardingPass]
 
-    @property
-    def check_points(self):
-        if self.departure_point not in [
-            item.departure_point for item in self.boarding_passes
-        ] or self.arrival_point not in [
-            item.arrival_point for item in self.boarding_passes
-        ]:
-            return False
-        return True
+    # @property
+    # def check_points(self):
+    #     if self.departure_point not in [
+    #         item.departure_point for item in self.boarding_passes
+    #     ] or self.arrival_point not in [
+    #         item.arrival_point for item in self.boarding_passes
+    #     ]:
+    #         return False
+    #     return True

@@ -20,21 +20,26 @@ def route_url(regexes: t.List[str], url: str) -> bool:
     return any(matches)
 
 
+# the implementation of this algorithm expects the use of all available passes in the stack
+# otherwise, input data restriction and their subsequent validation are required
+
+
 def validate_row_data(obj: dict) -> dict:
-    """initial data processing"""
     result = {}
     count = 1
-    departure_point = obj["departure_point"]
-    arrival_point = obj["arrival_point"]
-    while True:
+    departure_point_set = {item["departure_point"] for item in obj["boarding_passes"]}
+    arrival_point_set = {item["arrival_point"] for item in obj["boarding_passes"]}
+
+    departure_point = list(departure_point_set.difference(arrival_point_set))[0]
+    while obj["boarding_passes"]:
         for boarding_pass in obj["boarding_passes"]:
             if boarding_pass["departure_point"] == departure_point:
                 result[count] = boarding_pass
                 departure_point = boarding_pass["arrival_point"]
                 count += 1
-                if boarding_pass["arrival_point"] == arrival_point:
-                    return result
                 obj["boarding_passes"].remove(boarding_pass)
+
+    return result
 
 
 # of course, this is probably a hardcode,

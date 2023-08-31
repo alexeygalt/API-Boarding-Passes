@@ -5,18 +5,37 @@ POST http://localhost:8000/
 Accept: application/json
 Content-Type: application/json
 
-{
-"departure_point": "Moscow",
-     "arrival_point": "Praga",
-     "boarding_passes": [{"transport_type": "fly", "departure_point": "Moscow",
-                          "arrival_point": "London", "number": "227D", "seat_place": "141",
-                          "baggage": 12, "gate": "16"}, {"transport_type": "bus", "departure_point": "Berlin",
-                                                         "arrival_point": "Berlin Airport"},
-                         {"transport_type": "train", "departure_point": "Berlin Airport",
-                          "arrival_point": "Praga", "number": "21A", "seat_place": "40",
-                          "baggage": 44}, {"transport_type": "train", "departure_point": "Liverpool",
-                                           "arrival_point": "Manchester", "number": "37b", "seat_place": "123",
-                                           "baggage": 12},
-                         {"transport_type": "fly", "departure_point": "London",
-                          "arrival_point": "Berlin", "number": "113C", "seat_place": "24", "gate": "322",
-                          "baggage": 312}]}
+{"boarding_passes": [
+    {
+      "transport_type": "fly",
+      "departure_point": "Moscow",
+      "arrival_point": "London",
+      "number": "227D",
+      "seat_place": "141",
+      "baggage": 12,
+      "gate": "16"
+    },
+    {
+      "transport_type": "bus",
+      "departure_point": "Berlin",
+      "arrival_point": "Berlin Airport"
+    },
+    {
+      "transport_type": "train",
+      "departure_point": "Berlin Airport",
+      "arrival_point": "Praga",
+      "number": "21A",
+      "seat_place": "40",
+      "baggage": 44
+    },
+    {
+      "transport_type": "fly",
+      "departure_point": "London",
+      "arrival_point": "Berlin",
+      "number": "113C",
+      "seat_place": "24",
+      "gate": "322",
+      "baggage": 312
+    }
+  ]
+}

@@ -23,8 +23,6 @@ def create_board_list(environ: dict, response: t.Callable) -> t.List[bytes]:
         temp = BaseInputData(**data)
     except ValidationError:
         raise ErrorResponse(400, message=f"Data is not valid! Check it.")
-    if not temp.check_points:
-        raise ErrorResponse(400, message="Data is not valid! Check it.")
     response(HTTP_MESSAGE[201], [("Content-Type", "application/json")])
     temp = validate_row_data(temp.model_dump())
     result = validate_to_json(temp)
